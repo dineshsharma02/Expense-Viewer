@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <h3>Hello {{username}}</h3>
+    <hr>
+    <h4>Dashboard</h4>
+    <div class="row">
+    <!-- <div class="container"> -->
+        <div class="col-md-5 summary-boxes">
+            <label for="">Last 6 months Income</label>
+        <canvas id="myIncomeChart" width="150" height="150"></canvas>
+    </div>
+    <!-- </div> -->
+    <!-- <div class="container"> -->
+        
+        <div class="col-md-5 summary-boxes">
+            <label for="">Last 6 months Expense</label>
+        <canvas id="myExpenseChart" width="150" height="150"></canvas>
+    <!-- </div> -->
+    </div>
+</div>
+    <script src="{% static 'js/income_stats.js' %}"></script>
+
+    <script src="{% static 'js/expense_stats.js' %}"></script>
+{% endblock content %}
+

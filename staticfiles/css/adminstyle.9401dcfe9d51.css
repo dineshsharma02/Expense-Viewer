@@ -1,0 +1,24 @@
+#header{
+    background-color: skyblue;
+
+}
+#branding h1{
+    color: #ffffff;
+}
+
+.breadcrumbs {
+    background-color: skyblue;
+    padding: 10px 40px;
+    border: none;
+    
+    text-align: left;
+}
+
+input[type="submit"] ,input[type="button"],.submit-row-input{
+    
+    background-color: skyblue;
+    width: 100%;
+}
+.module h2,.module caption,.inline-group h2{
+    background-color: skyblue;
+}

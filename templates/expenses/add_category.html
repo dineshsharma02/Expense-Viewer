@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container my-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'expenses' %}">Expenses</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <a href="{% url 'add_expense' %}">Add Expenses</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        <a href="#">Add Category</a>
+      </li>
+    </ol>
+  </nav>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    {% include 'partials/_messages.html' %}
+    <form action="{% url 'add_category' %}" method="post">
+        {% csrf_token %}
+      <div class="form-group my-2">
+        <label for="">Category name</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          name="category_name"
+          value=""
+          id=""
+        />
+      </div>
+      </br>
+      <input type="submit" class="btn btn-primary" value="Add" />
+    </form>
+  </div>
+</div>
+
+{% endblock %}

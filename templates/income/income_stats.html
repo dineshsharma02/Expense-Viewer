@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+{% include 'partials/_messages.html' %}
+
+<div class="row">
+  <div class="col-md-10">
+    <div class="container my-4"></div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page"><a href={% url 'income' %}>Income</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href={% url 'income_stats' %}> Summary</a></li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-md-2 container my-4">
+    <a class="btn btn-primary" href="{% url 'income' %}">Back</a>
+  </div>
+
+  <div class="container">
+    <div class="dropdown m-2">
+      <a class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" role="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Export Your income data
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'income_export_csv'%}">Export CSV</a>
+        <a class="dropdown-item" href="{% url 'income_export_excel'%}">Export Excel</a>
+        <a class="dropdown-item" href="{% url 'income_export_pdf'%}">Export PDF</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div class="container">
+  <canvas id="myIncomeChart" width="400" height="400"></canvas>
+</div>
+
+<script src="{% static 'js/income_stats.js' %}"></script>
+
+
+{% endblock content %}

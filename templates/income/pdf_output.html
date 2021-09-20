@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Output</title>
+    <style>
+        @page{
+            size:"A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+        
+        @top-center {
+            content: "income Viewer";
+        }
+        @bottom-right{
+            content: "Page " counter(page) of counter(pages);
+        }
+    }
+    </style>
+</head>
+<body>
+    <img src="" alt="">
+
+    <h2>income List</h2>
+    <div class="table" >
+        <table style="border: 1px solid #ddd; padding: 8px; width: 100%;">
+        <thead class = "thead">
+            <tr>
+                <th>No</th>
+                <th>Amount</th>
+                <th>Source</th>
+                <th>Description</th>
+                <th>Date</th>
+    
+            </tr>
+        </thead>
+        <tbody>
+            {% for income in income %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{income.amount}}</td>
+                <td>{{income.category}}</td>
+                <td>{{income.description}}</td>
+                <td>{{income.date}}</td>
+    
+            </tr>
+            {% endfor %}
+            
+            
+        </tbody>
+    </table>
+    <div class="table" >
+        <table style="border: 1px solid #ddd; padding: 8px; width: 100%;">
+        <tbody>
+            <tr>
+                <td>Total</td>
+                <td>=</td>
+                <td>{{total}}</td>
+                
+    
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
